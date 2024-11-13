@@ -1,0 +1,17 @@
+{
+ "@iot.id": 4925,
+ "Thing": { "@iot.id": 1324 },
+ "Sensor": { "@iot.id": 3936 },
+ "ObservedProperty": { "@iot.id": 6 },
+ "name": "Copernico_6A_Ozone",
+ "description": "Ozone at classroom 6A, Istituto Copernico-Carpeggiani in Ferrara",
+ "unitOfMeasurement": {
+ "name": "Micrograms per cubic meter",
+ "symbol": "ug.m-3",
+ "definition": "http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3"
+ },
+ "observationType": "http://www.opengis.net/def/observationType/OGCOM/2.0/OM_Measurement",
+ "properties": {
+ "identifier": "EDIAQI.FE.001"
+ }
+}

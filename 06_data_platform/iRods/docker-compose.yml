@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  irods-catalog-provider:
+    container_name: irods-catalog-provider
+    build:
+        context: .
+        dockerfile: Dockerfile.provider
+    hostname: icat.know-center.at
+    volumes:
+      - ../Vault:/var/lib/irods/Vault
+      - ./pgdata:/var/lib/postgresql/data 
+    networks:
+      irodsnet:
+        aliases:
+          - icat.know-center.at
+    ports:
+      - "1247:1247"
+      #- "5432:5432"
+      #- "20000-21999"
+
+  irods-catalog-consumer-resource1:
+    container_name: irods-catalog-consumer-resource1
+    build:
+        context: .
+        dockerfile: Dockerfile.consumer
+    hostname: resource1.know-center.at
+    networks:
+      irodsnet:
+        aliases:
+          - resource1.know-center.at
+    depends_on:
+      - irods-catalog-provider
+
+networks:
+   irodsnet:
+    driver: bridge 

@@ -1,0 +1,8 @@
+{
+ "@iot.id": 389920465,
+ "FeatureOfInterest": { "@iot.id": 9935 },
+ "Datastream": { "@iot.id": 4925 },
+ "phenomenonTime": "2023-11-30T23:00:00Z/2023-11-30T23:10:00Z",
+ "result": "12.34567",
+ "resultTime": "2023-12-01T00:00:00Z"
+}

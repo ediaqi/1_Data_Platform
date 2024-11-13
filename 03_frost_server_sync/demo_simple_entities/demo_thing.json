@@ -1,0 +1,10 @@
+{
+ "@iot.id": 1324,
+ "name": "EDIAQI.FE.001 for pilot P1 Ferrara",
+ "description": "IAQ unit 001 at Istituto Copernico-Carpeggiani to monitor A, B, C, D, etc",
+ "properties": {
+ "identifier": "EDIAQI.FE.001",
+ "owner": "https://www.labservice.it/",
+ "beginTime": "2023-10-05"
+ }
+}

@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  streamlit-app:
+    build: .
+    restart: always
+    container_name: ui_streamlit
+    environment:
+      - STREAMLIT_SERVER_MAX_UPLOAD_SIZE=1024
+      - REQUEST_TIMEOUT=1000
+
+    ports:
+      - 8000:8501
+

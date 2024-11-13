@@ -1,0 +1,18 @@
+[
+ {
+ "Datastream": { "@iot.id": 4925 },
+ "components": [
+ "result",
+ "phenomenonTime"
+ ],
+ "dataArray": [
+ [
+ 123,
+ "1900-11-23T01:02:03Z"
+ ],
+ [
+ 456,
+ "1900-11-23T04:05:06Z"
+ ]
+ ]
+ }]

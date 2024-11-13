@@ -1,0 +1,21 @@
+{
+ "@iot.id": 3936,
+ "name": "Sensirion SPS30",
+ "description": "PM2.5 Sensor for HVAC and air quality applications SPS30",
+ "encodingType": "application/pdf",
+ "metadata":
+"https://sensirion.com/media/documents/B7AAA101/61653FB8/Sensirion_Particulate_Matter_AppNotes_Specification_Statement.pdf",
+ "properties": {
+ "identifier": "EDIAQI.FE.001",
+ "measurementType":
+"http://dd.eionet.europa.eu/vocabulary/aq/measurementtype/automatic",
+ "method": "http://dd.eionet.europa.eu/vocabulary/aq/measurementmethod/NDIR",
+ "owner": "https://www.labservice.it/",
+ "responsibleParty ": {
+ "organisationName": "Lab Service Analytica srl",
+ "website": "https://www.labservice.it/",
+ "telephoneVoice": "+39051732351",
+ "electronicMailAddress": "info@labservice.it"
+ }
+ }
+}

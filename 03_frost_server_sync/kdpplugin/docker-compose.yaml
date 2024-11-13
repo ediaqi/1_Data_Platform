@@ -1,0 +1,62 @@
+version: '3'
+
+services:
+  projects_web:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    image: hylkevds/frost-http-projects:latest
+    ports:
+      - 8080:8080
+    environment:
+      - serviceRootUrl=https://kdp-ediaqi.know-center.at/FROST-Server
+      - queueLoggingInterval=1000
+      - http_cors_enable=true
+      - http_cors_allowed_origins=*
+      - persistence_db_driver=org.postgresql.Driver
+      - persistence_db_url=jdbc:postgresql://projects_database:5432/sensorthings
+      - persistence_db_username=sensorthings
+      - persistence_db_password=sth
+      - persistence_autoUpdateDatabase=true
+      - persistence.idGenerationMode.Thing=ClientGeneratedOnly      
+      - persistence.idGenerationMode.Location=ClientGeneratedOnly   
+      - persistence.idGenerationMode.Sensor=ClientGeneratedOnly 
+      - persistence.idGenerationMode.ObservedProperty=ClientGeneratedOnly   
+      - persistence.idGenerationMode.FeatureOfInterest=ServerAndClientGenerated           
+      - plugins.coreModel.idType.thing=STRING
+      - plugins.coreModel.idType.location=STRING
+      - plugins.coreModel.idType.sensor=STRING
+      - auth_provider=de.fraunhofer.iosb.ilt.frostserver.auth.keycloak.KeycloakAuthProvider
+      #- auth_provider=de.fraunhofer.iosb.ilt.frostserver.auth.basic.BasicAuthProvider
+      - auth_keycloakConfigFile=/config/keycloak.json
+      - auth_allowAnonymousRead=false
+      - auth_authenticateOnly=true
+      - auth_registerUserLocally=true
+      - auth_db_driver=org.postgresql.Driver
+      - auth_db_url=jdbc:postgresql://projects_database:5432/sensorthings
+      - auth_db_username=sensorthings
+      - auth_db_password=sth
+      - auth_autoUpdateDatabase=true
+      - auth_plainTextPassword=false
+      - FROST_LL=info
+      - FROST_LL_service=info
+      - FROST_LL_org_jooq=info
+    volumes:
+      - ./key:/config
+    depends_on:
+      projects_database:
+        condition: service_healthy
+
+  projects_database:
+    image: postgis/postgis:14-3.2-alpine
+    environment:
+      - POSTGRES_DB=sensorthings
+      - POSTGRES_USER=sensorthings
+      - POSTGRES_PASSWORD=sth
+    volumes:
+      - projects_volume:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+volumes:
+    projects_volume:

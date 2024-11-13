@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  metalnx-database:
+    container_name: metalnx-database
+    image: postgres:11
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: irods 
+      POSTGRES_USER: irods 
+      POSTGRES_DB: irods-ext  
+      POSTGRES_HOST_AUTH_METHOD: md5 
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data 
+    hostname: metalnxdb.know-center.at
+    networks:
+      irods_irodsnet:
+        aliases:
+          - metalnxdb.know-center.at
+    ports:
+      - "5432:5432" 
+
+  metalnx:
+    image: irods/metalnx:latest
+    restart: always
+    volumes:
+      - ./conf:/etc/irods-ext
+    hostname: metalnx.know-center.at
+    networks:
+      irods_irodsnet:
+        aliases:
+          - metalnx.know-center.at
+    ports:
+      - 80:8080
+  
+networks:
+   irods_irodsnet:
+    external: true
+     

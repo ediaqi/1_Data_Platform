@@ -1,0 +1,7 @@
+streamlit
+pandas
+htbuilder
+openpyxl
+psycopg2-binary
+streamlit-date-picker
+plotly

@@ -1,0 +1,6 @@
+{
+ "@iot.id": 6,
+ "name": "O3",
+ "description": "http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7",
+ "definition": "Ozone"
+}

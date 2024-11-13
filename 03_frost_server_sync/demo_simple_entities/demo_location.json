@@ -1,0 +1,11 @@
+{
+ "@iot.id": 1234,
+ "Things": [{ "@iot.id": 1324}],
+ "name": "Istituto",
+ "description": "hey",
+ "encodingType": "application",
+ "location": {
+ "type": "Point",
+ "coordinates": [11.64273, 44.82996]
+ }
+}

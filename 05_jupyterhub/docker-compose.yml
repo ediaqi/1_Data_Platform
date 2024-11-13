@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  
+  # 4. jupyterhub
+  jhub:
+    #image: hantran/mcl:jhub2404
+    build: ./jupyterhub
+    #image: quay.io/jupyterhub/jupyterhub
+    restart: always
+    ports:
+      - 8088:8000
+    volumes:
+      - jupyterhub:/home
+      - ./jupyterhub/jupyterhub_config.py:/srv/jupyterhub/jupyterhub_config.py
+    environment:
+      - OAUTH2_AUTHORIZE_URL=https://kdp-ediaqi.know-center.at/keycloak/realms/master/protocol/openid-connect/auth
+      - OAUTH2_TOKEN_URL=https://kdp-ediaqi.know-center.at/keycloak/realms/master/protocol/openid-connect/token
+    deploy:
+      resources:
+        limits:
+          memory: 50G  # Limit the total memory used by the JupyterHub container to 4GB
+ 
+volumes:
+  jupyterhub:
