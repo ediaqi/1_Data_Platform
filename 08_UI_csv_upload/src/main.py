@@ -19,7 +19,7 @@ def _get_access_token(usr, pwd):
         'username': usr,
         'password': pwd,
         'grant_type': 'password',
-        'client_secret': 'QAuIoOUTpBlKiD79J2iT9IRUZ10BS2ov'
+        'client_secret': ''
     }
 
     response = requests.post(FROST_KEYCLOAK_SERVER, data=payload)

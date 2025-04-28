@@ -21,5 +21,5 @@ ZG_LIST = list(range(2369, 5984))
 TIME_LIMIT = '4 hours'
 
 # Keycloak Client for FROST-server
-CLIENT_ID = 'frost'
-CLIENT_SECRET = 'QAuIoOUTpBlKiD79J2iT9IRUZ10BS2ov'
+CLIENT_ID = ''
+CLIENT_SECRET = ''
