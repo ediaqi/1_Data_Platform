@@ -87,6 +87,7 @@ cd 06_data_platform
 docker-compose up -d
 cd 09_elasticsearch
 docker-compose up -d
+```
 
 **3. Access**
 Once deployed, the main portal is accessible at: `https://your-domain.com/`
